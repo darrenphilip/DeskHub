@@ -1,0 +1,92 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(54, 50, 103);
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+}
+
+h1, h2, h3, p{
+  color: #FFFFE0;
+}
+
+#title {
+  margin-top: 12.5vh;
+}
+
+#intro {
+  margin-top: 0.1vh;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  height: 55%;
+  width: 60%;
+  background-color: rgb(54, 50, 103);
+  margin: auto;
+  justify-content: center;
+  border: 1px solid #FFFFE0;
+  box-shadow: 0 4px 8px rgba(255, 255, 224, 0.2);
+  padding-top: 5vh;
+}
+
+.box h2 {
+  padding-bottom: 1vh;
+}
+
+#workspace-input {
+  border: 1px solid black;
+  border-radius: 3px;
+  width: 35%;
+  margin-bottom: 35vh;
+  padding-bottom: 2vh;
+  background: linear-gradient(135deg, #a777e3, #6e8efb);
+  font-size: 32px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  line-height: 100px;
+}
+
+#workspace-input::placeholder {
+  color: #FFFFE0;
+  opacity: 0.5;
+}
+
+#workspace-input:focus {
+  border-color: #FFA500;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
+}
+
+.create {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.create:hover {
+  background: linear-gradient(135deg, #a777e3, #6e8efb);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.create:active {
+  background: linear-gradient(135deg, #5a78d6, #8c6fd6);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(0);
+}

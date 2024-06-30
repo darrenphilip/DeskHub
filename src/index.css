@@ -3,7 +3,26 @@ body {
   margin: 0;
   padding: 0;
   background-color: rgb(54, 50, 103);
-  overflow: hidden;
+  overflow: auto;
+}
+
+body::-webkit-scrollbar {
+  width: 9px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #1f2a44;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #3a4465;
+  border-radius: 10px;
+  border: 3px solid #1f2a44;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #5a6ca5;
 }
 
 .center {

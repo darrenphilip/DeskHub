@@ -1,5 +1,5 @@
-let selectedWorkspace = null; // Track the currently selected workspace
-let selectedApps = []; // Track the selected apps
+let selectedWorkspace = null;
+let selectedApps = [];
 
 document.addEventListener('DOMContentLoaded', (event) => {
   loadWorkspaces();
@@ -10,27 +10,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const saveAppsButton = document.getElementById('save-apps');
   const launchWorkspaceButton = document.getElementById('launch-workspace');
 
-  // Event listener for the Create button
   createButton.addEventListener('click', function() {
-    const inputValue = input.value; // Get the input value
-    console.log('Input value:', inputValue); // Log the input value
+    const inputValue = input.value;
+    console.log('Input value:', inputValue);
     if (inputValue) {
-      saveWorkspace(inputValue); // Pass the input value
-      input.value = ''; // Clear the input field
+      saveWorkspace(inputValue);
+      input.value = '';
       loadWorkspaces();
     } else {
       alert('Please enter a workspace name.');
     }
   });
 
-  // Event listener for Enter key press in the input field
   input.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
-      createButton.click(); // Programmatically click the Create button
+      createButton.click();
     }
   });
 
-  // Event listener for the Select App button
   selectAppButton.addEventListener('click', async function() {
     const appPath = await window.electron.selectApp();
     if (appPath) {
@@ -39,7 +36,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   });
 
-  // Event listener for the Save Apps button
   saveAppsButton.addEventListener('click', async function() {
     if (selectedWorkspace !== null) {
       const result = await window.electron.saveAppsToWorkspace(selectedWorkspace, selectedApps);
@@ -53,7 +49,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   });
 
-  // Event listener for the Launch Workspace button
   launchWorkspaceButton.addEventListener('click', function() {
     if (selectedWorkspace !== null) {
       window.electron.launchWorkspace(selectedWorkspace);
@@ -64,7 +59,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 function saveWorkspace(workspaceName) {
-  console.log('Saving workspace:', workspaceName); // Log the workspace name
+  console.log('Saving workspace:', workspaceName);
   window.electron.saveWorkspace(workspaceName).then(loadWorkspaces);
 }
 
@@ -72,12 +67,12 @@ function loadWorkspaces() {
   window.electron.getWorkspaces().then(workspaces => {
     const workspaceList = document.getElementById('workspace-list');
     workspaceList.innerHTML = '';
-    console.log('Loading workspaces:', workspaces); // Log the workspaces being loaded
+    console.log('Loading workspaces:', workspaces);
     workspaces.forEach((workspace, index) => {
       let listItem = document.createElement('li');
       listItem.textContent = workspace.name;
       listItem.addEventListener('click', () => {
-        selectWorkspace(index, workspace.name); // Set the selected workspace index
+        selectWorkspace(index, workspace.name);
       });
 
       let trashIcon = document.createElement('span');
@@ -96,19 +91,19 @@ function loadWorkspaces() {
 
 function selectWorkspace(index, name) {
   selectedWorkspace = index;
-  document.getElementById('selected-workspace-name').textContent = `Currently Selected Workspace: ${name}`;
+  document.getElementById('selected-workspace-name').textContent = `${name}`;
   loadWorkspaceApps(index);
   highlightSelectedWorkspace(index);
 }
 
 function deleteWorkspace(index) {
   window.electron.getWorkspaces().then(workspaces => {
-    workspaces.splice(index, 1); // Remove the workspace at the specified index
+    workspaces.splice(index, 1);
     window.electron.saveWorkspaces(workspaces).then(() => {
-      loadWorkspaces(); // Load the updated list of workspaces
-      selectedWorkspace = null; // Reset the selected workspace
-      document.getElementById('workspace-apps-list').innerHTML = ''; // Clear the apps list
-      document.getElementById('selected-workspace-name').textContent = 'None'; // Clear the selected workspace name
+      loadWorkspaces();
+      selectedWorkspace = null;
+      document.getElementById('workspace-apps-list').innerHTML = '';
+      document.getElementById('selected-workspace-name').textContent = 'None';
     });
   });
 }
@@ -123,10 +118,10 @@ function loadWorkspaceApps(index) {
       listItem.textContent = app;
 
       let deleteAppIcon = document.createElement('span');
-      deleteAppIcon.innerHTML = '&#128465;'; // Unicode for trash can icon
+      deleteAppIcon.innerHTML = '&#128465;';
       deleteAppIcon.className = 'trash-icon';
       deleteAppIcon.addEventListener('click', (event) => {
-        event.stopPropagation(); // Prevent the click event from propagating to the list item
+        event.stopPropagation();
         deleteApp(index, appIndex);
       });
 
@@ -138,9 +133,9 @@ function loadWorkspaceApps(index) {
 
 function deleteApp(workspaceIndex, appIndex) {
   window.electron.getWorkspaces().then(workspaces => {
-    workspaces[workspaceIndex].apps.splice(appIndex, 1); // Remove the app at the specified index
+    workspaces[workspaceIndex].apps.splice(appIndex, 1);
     window.electron.saveWorkspaces(workspaces).then(() => {
-      loadWorkspaceApps(workspaceIndex); // Load the updated list of apps for the selected workspace
+      loadWorkspaceApps(workspaceIndex);
     });
   });
 }
@@ -153,10 +148,10 @@ function updateSelectedAppsList() {
     listItem.textContent = app;
 
     let deleteAppIcon = document.createElement('span');
-    deleteAppIcon.innerHTML = '&#128465;'; // Unicode for trash can icon
+    deleteAppIcon.innerHTML = '&#128465;';
     deleteAppIcon.className = 'trash-icon';
     deleteAppIcon.addEventListener('click', (event) => {
-      event.stopPropagation(); // Prevent the click event from propagating to the list item
+      event.stopPropagation();
       deleteSelectedApp(index);
     });
 
@@ -166,8 +161,8 @@ function updateSelectedAppsList() {
 }
 
 function deleteSelectedApp(appIndex) {
-  selectedApps.splice(appIndex, 1); // Remove the app at the specified index
-  updateSelectedAppsList(); // Update the list of selected apps
+  selectedApps.splice(appIndex, 1);
+  updateSelectedAppsList();
 }
 
 function highlightSelectedWorkspace(index) {

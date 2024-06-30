@@ -3,7 +3,7 @@
   "productName": "DeskHub",
   "version": "1.0.0",
   "description": "An app based off electron where you can assign apps to a workspace you created, in which you can boot up the workspace that will close all apps running and opens up the apps you have selected",
-  "main": "src/index.js",
+  "main": "src/main.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
@@ -29,5 +29,9 @@
   "license": "MIT",
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1"
+  },
+  "build": {
+    "appId": "com.renn.DeskHub",
+    "files": "!build-assets${/*}"
   }
 }

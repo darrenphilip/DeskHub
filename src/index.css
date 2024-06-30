@@ -1,6 +1,5 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: rgb(54, 50, 103);
@@ -14,7 +13,7 @@ body {
   height: 100vh;
 }
 
-h1, h2, h3, p{
+h1, h2, h3, p {
   color: #FFFFE0;
 }
 
@@ -66,7 +65,7 @@ h1, h2, h3, p{
   box-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
 }
 
-.create {
+#create {
   background: linear-gradient(135deg, #6e8efb, #a777e3);
   border: none;
   border-radius: 8px;
@@ -79,14 +78,41 @@ h1, h2, h3, p{
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.create:hover {
+#create:hover {
   background: linear-gradient(135deg, #a777e3, #6e8efb);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }
 
-.create:active {
+#create:active {
   background: linear-gradient(135deg, #5a78d6, #8c6fd6);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transform: translateY(0);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #3A3A8C;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.trash-icon {
+  cursor: pointer;
+  color: red;
+  font-size: 20px;
+}
+
+.selected {
+  background-color: #4a4a9c;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }

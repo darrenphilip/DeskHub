@@ -1,37 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>DeskHub</title>
-    <link rel="stylesheet" href="index.css" />
+<head>
+  <meta charset="UTF-8">
+  <title>DeskHub</title>
+  <link rel="stylesheet" href="index.css">
+  <script defer src="render.js"></script>
+</head>
+<body>
 
-    <script defer src="render.js"></script>
-  </head>
+  <div class="center">
 
-  <body>
+    <div class="intro-text">
+      <h1 id="title">Welcome to DeskHub</h1>
+      <p id="intro">A place where you can be more productive!</p>
+    </div>
 
-    <div class="center">
+    <div class="box">
       
-      <div class="intro-text">
-        <h1 id="title">Welcome to DeskHub</h1>
-        <br>
-        <p id="intro">A place where you can be more productive!</p>
-      </div>
+      <h2>Make a new Workspace</h2>
 
-      <div class="box">
+      <div class="input-container">
 
-        <h2>Make a new Workspace</h2>
-
-        <div class="input-container">
-          <input type="text" name="" id="workspace-input" placeholder="Input Workspace Name">
-
-          <button class="create">Create Workspace</button>
-        </div>
-
+        <input type="text" id="workspace-input" placeholder="Input Workspace Name">
+        <button id="create" class="cool-button">Create Workspace</button>
       </div>
 
     </div>
 
-  </body>
+    <div class="workspace-list">
 
+      <h3>Saved Workspaces:</h3>
+      <ul id="workspace-list"></ul>
+
+    </div>
+
+    <div class="selected-workspace">
+
+      <h3>Currently Selected Workspace:</h3>
+      <p id="selected-workspace-name">None</p>
+
+    </div>
+
+    <div class="app-assignment">
+
+      <h3>Assign Apps to Workspace</h3>
+      <div id="selected-apps"></div>
+      <button id="select-app" class="cool-button">Select App</button>
+      <button id="save-apps" class="cool-button">Save Apps to Workspace</button>
+      
+    </div>
+
+    <div class="workspace-apps">
+
+      <h3>Apps in Selected Workspace</h3>
+      <ul id="workspace-apps-list"></ul>
+      <button id="launch-workspace" class="cool-button">Launch Workspace</button>
+
+    </div>
+
+  </div>
+
+</body>
 </html>

@@ -31,7 +31,6 @@
     "electron-squirrel-startup": "^1.0.1"
   },
   "build": {
-    "appId": "com.renn.DeskHub",
-    "files": "!build-assets${/*}"
+    "appId": "com.renn.DeskHub"
   }
 }

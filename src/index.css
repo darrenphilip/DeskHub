@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: rgb(54, 50, 103);
+  overflow: hidden;
 }
 
 .center {

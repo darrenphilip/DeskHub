@@ -7,4 +7,7 @@ contextBridge.exposeInMainWorld('electron', {
   saveAppsToWorkspace: (workspaceIndex, apps) => ipcRenderer.invoke('save-apps-to-workspace', workspaceIndex, apps),
   launchWorkspace: (workspaceIndex) => ipcRenderer.invoke('launch-workspace', workspaceIndex),
   saveWorkspaces: (workspaces) => ipcRenderer.invoke('save-workspaces', workspaces),
+  minimize: () => ipcRenderer.send('minimize-window'),
+  maximize: () => ipcRenderer.send('maximize-window'),
+  close: () => ipcRenderer.send('close-window')
 });

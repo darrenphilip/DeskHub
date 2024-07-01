@@ -4,61 +4,58 @@
   <meta charset="UTF-8">
   <title>DeskHub</title>
   <link rel="stylesheet" href="index.css">
-  <script defer src="render.js"></script>
 </head>
 <body>
 
-  <div class="center">
+  <div class="title-bar">
+    <div class="title-bar-buttons">
+      <button id="minimize-button">−</button>
+      <button id="maximize-button">□</button>
+      <button id="close-button">×</button>
+    </div>
+  </div>
 
-    <div class="intro-text">
+  <div class="content">
+    <div class="header">
       <h1 id="title">Welcome to DeskHub</h1>
       <p id="intro">A place where you can be more productive!</p>
     </div>
 
-    <div class="box">
-      
-      <h2>Make a new Workspace</h2>
-
-      <div class="input-container">
-
-        <input type="text" id="workspace-input" placeholder="Input Workspace Name">
-        <button id="create" class="cool-button">Create Workspace</button>
+    <div class="center">
+      <div class="box">
+        <h2>Make a new Workspace</h2>
+        <div class="input-container">
+          <input type="text" id="workspace-input" placeholder="Input Workspace Name">
+          <button id="create" class="cool-button">Create Workspace</button>
+        </div>
       </div>
 
+      <div class="workspace-list">
+        <h3>Saved Workspaces:</h3>
+        <ul id="workspace-list"></ul>
+      </div>
+
+      <div class="selected-workspace">
+        <h3>Currently Selected Workspace:</h3>
+        <p id="selected-workspace-name">None</p>
+      </div>
+
+      <div class="app-assignment">
+        <h3>Assign Apps to Workspace</h3>
+        <div id="selected-apps"></div>
+        <button id="select-app" class="cool-button">Select App</button>
+        <button id="save-apps" class="cool-button">Save Apps to Workspace</button>
+      </div>
+
+      <div class="workspace-apps">
+        <h3>Apps in Selected Workspace</h3>
+        <ul id="workspace-apps-list"></ul>
+        <button id="launch-workspace" class="cool-button">Launch Workspace</button>
+      </div>
     </div>
-
-    <div class="workspace-list">
-
-      <h3>Saved Workspaces:</h3>
-      <ul id="workspace-list"></ul>
-
-    </div>
-
-    <div class="selected-workspace">
-
-      <h3>Currently Selected Workspace:</h3>
-      <p id="selected-workspace-name">None</p>
-
-    </div>
-
-    <div class="app-assignment">
-
-      <h3>Assign Apps to Workspace</h3>
-      <div id="selected-apps"></div>
-      <button id="select-app" class="cool-button">Select App</button>
-      <button id="save-apps" class="cool-button">Save Apps to Workspace</button>
-      
-    </div>
-
-    <div class="workspace-apps">
-
-      <h3>Apps in Selected Workspace</h3>
-      <ul id="workspace-apps-list"></ul>
-      <button id="launch-workspace" class="cool-button">Launch Workspace</button>
-
-    </div>
-
   </div>
 
+  <script defer src="render.js"></script>
+  <script defer src="titlebar.js"></script>
 </body>
 </html>

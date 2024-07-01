@@ -6,8 +6,9 @@ body {
   overflow: auto;
 }
 
-body::-webkit-scrollbar {
-  width: 9px;
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
 body::-webkit-scrollbar-track {
@@ -23,6 +24,43 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-thumb:hover {
   background: #5a6ca5;
+}
+
+.title-bar {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #2e2e2e;
+  padding: 5px 10px;
+  -webkit-app-region: drag;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.title-bar-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-bar-buttons button {
+  background: none;
+  border: none;
+  color: #cccccc;
+  font-size: 18px;
+  margin-left: 10px;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+}
+
+.title-bar-buttons button:hover {
+  color: #ffffff;
+}
+
+.header {
+  text-align: center;
+  margin-top: 40px; /* Adjust according to the height of the title bar */
 }
 
 .center {

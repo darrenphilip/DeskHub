@@ -7,22 +7,35 @@ body {
 }
 
 /* Scrollbar */
+body {
+  overflow: hidden; /* Ensure no scrollbar on the body itself */
+}
+
+.content {
+  overflow: auto; /* Enable scrolling on the content area */
+  flex-grow: 1;
+  max-height: calc(100vh - 40px); /* Adjust the value based on the height of the title bar */
+  padding-right: 10px; /* Provide space for the scrollbar */
+  padding-bottom: 50px; /* Add padding to the bottom to make the scrollbar longer */
+  box-sizing: border-box; /* Include padding in the height calculation */
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-body::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: #1f2a44;
   border-radius: 10px;
 }
 
-body::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background: #3a4465;
   border-radius: 10px;
   border: 3px solid #1f2a44;
 }
 
-body::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   background: #5a6ca5;
 }
 
@@ -42,6 +55,7 @@ body::-webkit-scrollbar-thumb:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-right: 1vw;
 }
 
 .title-bar-buttons button {

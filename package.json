@@ -4,7 +4,7 @@
   "description": "DeskHub - Productivity and Workspace Management App",
   "main": "src/main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "nodemon --exec electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
@@ -24,7 +24,8 @@
   },
   "devDependencies": {
     "electron": "^31.1.0",
-    "electron-builder": "^24.13.3"
+    "electron-builder": "^24.13.3",
+    "nodemon": "^2.0.22"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1"
